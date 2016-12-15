@@ -1,0 +1,39 @@
+{% include 'includes/page-head.twig' %}
+
+{% set docFiles = [
+    'attributes',
+    'check_plain',
+    'defaults',
+    'format_date',
+    'interval',
+    'plural',
+    'size',
+    'striphashes',
+    'strreplace',
+    't',
+    'truncate',
+    'ucfirst',
+    'url',
+    'without',
+    'wrap',
+] %}
+
+{% markdown %}
+##Filters
+
+See [Twig documentation](http://twig.sensiolabs.org/doc/templates.html#filters) for more information about filters.
+
+Twig for Drupal 7 extends the default set of Twig filters with a the following drupal specific filters:
+
+{% for docFile in docFiles %}
+ - [{{ docFile }}](#{{ docFile }})
+{% endfor %}
+
+{% for docFile in docFiles %}
+###{{ docFile }}<a class="anchor" name="{{ docFile }}"></a>
+
+{{ source('includes/filters/' ~ docFile ~ '.md') }}
+{% endfor %}
+{% endmarkdown %}
+
+{% include 'includes/page-footer.twig' %}

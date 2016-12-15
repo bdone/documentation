@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ title }} | TFD7.rocks</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link href='http://fonts.googleapis.com/css?family=Pacifico|Roboto|Roboto+Mono' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/syntax.css">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<div class="nav sticky">
+    <h1>Twig For Drupal 7</h1>
+<ul class="menu">
+    {% for route,page in pages %}
+        <li><a href="{{ route }}" {{ (route==current)?'class="active"' }}>{{ page.name|capitalize }}</a></li>
+    {% endfor %}
+</ul>
+</div>
+<div class="wrapper">

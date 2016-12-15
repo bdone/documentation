@@ -1,0 +1,99 @@
+{% include 'includes/page-head.twig' %}
+
+{% markdown %}
+
+##Installation.
+
+By far the most complex thing if you are not a developer. Twig for Drupal relies on two contributed modules.  [X Autoload](https://www.drupal.org/project/xautoload) and [Libraries API](https://www.drupal.org/project/libraries)
+
+Before you start building a Twig based theme, enable the modules above and copy some code the Libraries directory ``/sites/all/libraries/``
+
+### Copy Twig
+
+Download or clone the latest 1.x version from [Github](https://github.com/twigphp/Twig) and copy the contents into libaries/Twig
+
+### Copy TFD
+
+Download or clone the master version from [Github](https://github.com/TFD7/TFD7) and copy the contents into libaries/TFD
+
+### Move the twig.engine
+
+After installing both libraries you should copy the ``twig.engine`` to ``sites\all\themes\engines\twig\``
+
+### Final result.
+
+After copying you should have something like this in your Drupal project.
+
+```
+\sites\all\libraries\
+\sites\all\libraries\TFD\
+\sites\all\libraries\TFD\autoloader
+\sites\all\libraries\TFD\TFD\
+\sites\all\libraries\TFD\TFD\Loader
+\sites\all\libraries\TFD\TFD\Extension.php
+....
+\sites\all\libraries\Twig\
+\sites\all\libraries\Twig\lib\
+\sites\all\libraries\Twig\lib\Twig\
+\sites\all\libraries\Twig\lib\Twig\Node\
+\sites\all\libraries\Twig\lib\Environment.php
+....
+\sites\all\themes\
+\sites\all\themes\engines\
+\sites\all\themes\engines\twig\
+\sites\all\themes\engines\twig\twig.engine
+```
+
+##Creating a twig theme
+
+Creating a Twig theme is actually quite easy, you simply replace the ``engine = phptemplate``  with ``engine = twig`` and done.
+
+```
+name = Twiggy
+description = A Twig theme
+screenshot = screenshot.png
+engine = twig
+core = 7.x
+php = 5.4
+```
+
+*Please note, due to a issue in the Drupal 7 core, a Twig template can NOT extend a PHP Template. I did [Try to patch it](https://www.drupal.org/node/1545964), but it got stuck because of the backport policy for core.*
+
+##Configuration[](#configuration)
+
+Twig for Drupal is mostly autoconfigured with sensible defaults, however you might want to fixate the location of where the template cache is writen. By default it goes into /files/twig_cache of your site. But you can override this behaviour by setting the file_twigcache_path in your settings.php
+
+```
+$conf['file_twigcache_path'] = 'path_to_cache';
+```
+Just make sure that your webserver has the rights to write files and create directories.
+
+
+###Autorender
+Turn of the auto rendering of variables, do note that you have to render a variable yourself with *{% verbatim %}{{ render(var) }}{% endverbatim %}*
+```
+$conf['twig_autorender'] = false;
+```
+
+###Autoescape
+Turn of the auto escaping into save HTML for all the templates
+```
+$conf['twig_autoescape'] = false;
+```
+
+###Autoreload
+Turn of the auto reloading of templates, this could save some performance on production environments. But you *must* clean the template cache yourself if you change the templates in your project!
+```
+$conf['twig_auto_reload'] = false;
+```
+
+
+##Bugs, issues or complaints.
+This project is maintained at [Github](https://github.com/TFD7/TFD7). This is where the most recent version of the project can be found, and where I prefer to get the pull requests.
+There is [sandbox on drupal.org](https://www.drupal.org/sandbox/ReneB/1075966), but this more a relic of the past. I do answer from time to time, but not as active as I should.
+
+
+And yes, this site is what happens if you have a 'developer' create CSS files, feel free to help me and make it pretty.
+{% endmarkdown %}
+
+{% include 'includes/page-footer.twig' %}

@@ -1,0 +1,69 @@
+{% include 'includes/page-head.twig' %}
+
+{% markdown %}
+##Tags
+
+See [Twig documentation](http://twig.sensiolabs.org/doc/templates.html#control-structure) for more information about tags or control structures.
+
+###Switch[](#switch)
+
+Instead of nesting a bunch of IF/ELSEIF/ELSE construct sometimes it is nicer on the eye to use a switch case construction.
+Unlike the PHP version of the switch method, the twig version is not falltrough by design. Meaning you do not need to explicitaly break from a case construct.
+
+```{% verbatim %}
+{% switch bar %}
+    {% case 'beer' %}
+        Here is a cold beer.
+    {% case 'water' %}
+        The tap is in the toilet
+    {% case 'howdie' fallthrough %}
+        Hello stranger,
+    {% case 'hello' %}
+        What do you want to drink?
+    {% default %}
+            say what?
+{% endswitch %}
+{% endverbatim %}```
+If bar contains either 'beer','water' and 'hello' it will output a  a single line, yet if bar contains 'howdie' produces both the outcome of the 'howdie' and 'hello'.
+And if bar is empty or none of the other case, it will produce 'say what?'
+
+
+###With[](#with)
+
+Scope shift a bunch of variables into a context. Mostly for readability in your template code, but can be used to grab the render array from a field mixed with the raw value into a single array.
+
+```{% verbatim %}
+{% with expr [as localName] [, expr2 [as localName2], [....]]  {sandboxed|merged} %}
+ {# do something with the scoped variables #}
+{% endwith %}
+{% endverbatim %}```
+
+```
+'foo' => array(
+    'name' => 'Foo',
+    'id'   => 1
+    ),
+'bar' => array(
+    'name' => 'Bar',
+    'id'   => 2
+    )
+)
+
+{% verbatim %}
+{% with foo %}
+    {{ id }}: {{ name }} {# would output: "1: Foo" #}
+{% endwith %}
+
+{% with foo as baz %}
+    {{ baz.id }}: {{ baz.name }} {# would output: "1: Foo" #}
+{% endwith %}
+
+{% with foo as bar, bar as foo %}
+    {{ bar.id }}: {{ bar.name }} {# would output: "1: Foo" #}
+    {{ foo.id }}: {{ foo.name }} {# would output: "2: Bar" #}
+{% endwith %}
+{% endverbatim %}```
+
+{% endmarkdown %}
+
+{% include 'includes/page-footer.twig' %}

@@ -1,0 +1,39 @@
+{% include 'includes/page-head.twig' %}
+
+{% set docFiles = [
+    'array_search',
+    'children',
+    'classname',
+    'dump',
+    'get_form_errors',
+    'hide',
+    'image_size',
+    'image_url',
+    'machine_name',
+    'module_exists',
+    'render',
+    'theme_get_setting',
+    'url',
+    'variable_get',
+    'viewblock',
+] %}
+
+{% markdown %}
+##Functions
+
+See [Twig documentation](http://twig.sensiolabs.org/doc/templates.html#functions) for more information about functions and how to use them in your templates.
+
+Twig for Drupal 7 extends the default set of Twig functions with a the following drupal specific functions:
+
+{% for docFile in docFiles %}
+ - [{{ docFile }}](#{{ docFile }})
+{% endfor %}
+
+{% for docFile in docFiles %}
+###{{ docFile }}<a class="anchor" name="{{ docFile }}"></a>
+
+{{ source('includes/functions/' ~ docFile ~ '.md') }}
+{% endfor %}
+{% endmarkdown %}
+
+{% include 'includes/page-footer.twig' %}
