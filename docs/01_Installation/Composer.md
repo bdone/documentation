@@ -1,9 +1,11 @@
 ## Composer installation
 
-* alique rhoncus eu libero
-* finibus viverra id tellus
-* ipsum lectus
+Installation.
+Please use the 7.x.3 branch instead of the 7.x.2 version. The engine and TFD libraries are the same but the installation process is way simpler!
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nec pharetra leo, vel ultricies est. Proin sed dui vel massa rutrum vehicula. Ut lacus magna, finibus nec ex sed, euismod cursus eros. Duis consequat pretium nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lectus libero, porta non luctus eget, rhoncus eu libero. Proin congue, lectus non dapibus tempus, ipsum eros suscipit lorem, nec scelerisque odio eros a tellus. Quisque diam turpis, viverra id tellus at.
-
-
+### Three easy steps, no copy/move needed
+```
+drush dl tfd7-7.x-3.0-beta1
+cd themes/engines/tfd7/
+composer install
+```
