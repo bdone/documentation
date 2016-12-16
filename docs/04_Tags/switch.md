@@ -3,7 +3,8 @@
 Instead of nesting a bunch of IF/ELSEIF/ELSE construct sometimes it is nicer on the eye to use a switch case construction.
 Unlike the PHP version of the switch method, the twig version is not falltrough by design. Meaning you do not need to explicitaly break from a case construct.
 
-```{% verbatim %}
+```
+{% verbatim %}
 {% switch bar %}
     {% case 'beer' %}
         Here is a cold beer.
