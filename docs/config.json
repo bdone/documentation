@@ -19,7 +19,8 @@
         "inherit_index": true,       
         "google_analytics": "UA-12345xxx-10",
         "links": {
-            "TFD7 on Drupal.org": "https://www.drupal.org/project/tfd7"
+            "TFD7 on Drupal.org": "https://www.drupal.org/project/tfd7",
+            "Twig documentation": "http://twig.sensiolabs.org/documentation"
         }
     }
 }

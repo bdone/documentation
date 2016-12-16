@@ -7,7 +7,9 @@ Word sensitive UTF-8 enabled text truncating.
 
 Usage
 
-``text|truncate(length=300,elipse=true,words=true)``
+```
+text|truncate(length=300,elipse=true,words=true)
+```
 
 
 **length**: How many letters  to keep
