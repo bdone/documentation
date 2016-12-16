@@ -12,6 +12,7 @@
         "theme": "daux-blue",
         "breadcrumbs": true,
         "breadcrumb_separator": "Chevrons",
+        "search": true,
         "toggle_code": false,
         "date_modified": true,
         "float": false,
