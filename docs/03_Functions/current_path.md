@@ -1,0 +1,1 @@
+The Drupal [current_path()](https://api.drupal.org/current_path) metbod mapped to twig.

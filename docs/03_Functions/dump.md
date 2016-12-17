@@ -8,6 +8,7 @@ Without parameters the dump command uses php var_dump(), if the devel module is 
 However you can specify the prefered dumping method as parameter.
 ```
 dump(variable, method)
+
 ```
 
 **method** : dpr,dpm,kpr,print_r,var_dump.

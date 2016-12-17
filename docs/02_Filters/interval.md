@@ -4,6 +4,9 @@ Wrapper around the drupal [format_interval](https://api.drupal.org/api/drupal/in
 
 Can be used to create a 'xx days ago' for a given date. The NOW date is calculated in the filter, so unlike the drupal version you only need to supply the date you want to use to calculate the interval between now and date.
 
+Usage
+
+
 ``date|interval(format_interval=2,display_ago=true,langcode=UND)``
 
 **granularity**: How many different units to display in the string.
