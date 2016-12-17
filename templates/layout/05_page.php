@@ -42,8 +42,12 @@
                 <?php
 
             } ?>
-        
+            <br />
+            <br />
+            <br />
+            <a href="http://daux.io/">Powered by Daux.io</a>         
             </div>
+
         </div>
     </aside>
     <div class="Columns__right <?= $params['html']['float'] ? 'Columns__right--float' : ''; ?>">

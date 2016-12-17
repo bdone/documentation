@@ -17,7 +17,8 @@
         "date_modified": true,
         "float": false,
         "inherit_index": true,       
-        "google_analytics": "UA-12345xxx-10",
+        "google_analytics": "UA-4625818-4",
+        "edit_on_github":"TFD7/documentation/tree/master/docs",
         "links": {
             "TFD7 on Drupal.org": "https://www.drupal.org/project/tfd7",
             "This site on github": "https://github.com/TFD7/tfd7-rocks",
